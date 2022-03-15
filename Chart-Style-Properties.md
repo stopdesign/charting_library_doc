@@ -2,7 +2,7 @@
 
 Every chart style has different set of properties. Here you can find a list of properties for chart styles and their types.
 
-To change properties, use [Series Api](./Series-Api).
+To change properties, use [Series Api](Series-Api.md).
 
 ### Bar
 
