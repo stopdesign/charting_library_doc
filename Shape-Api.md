@@ -65,7 +65,7 @@ Returns the points of the shape - an array of the [PricedPoint](#pricedpoint) ob
 
 ### setPoints(points)
 
-1. `points` - an array with the new points for the shape. The format of each shape is the same as `points` argument from [createMultipointShape](Chart-Methods#createmultipointshapepoints-options) method.
+1. `points` - an array with the new points for the shape. The format of each shape is the same as `points` argument from [createMultipointShape](Chart-Methods.md#createmultipointshapepoints-options) method.
 
 Set the new points of the shape.
 

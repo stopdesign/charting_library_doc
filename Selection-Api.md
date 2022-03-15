@@ -56,7 +56,7 @@ Checks if the selection is empty. It returns `true` if there is no selected obje
 
 ### onChanged()
 
-Returns a [Subscription](Subscription) object that can be used to subscribe to the selection changes.
+Returns a [Subscription](Subscription.md) object that can be used to subscribe to the selection changes.
 
 **Multiple selection:**
 

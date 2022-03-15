@@ -108,7 +108,7 @@ The instruction below explains how to display chart data as an indicator. Please
     }
     ```
 
-1. Add [custom_indicators_getter](Widget-Constructor#custom_indicators_getter) key to the widget constructor. Its value is a function that returns a Promise object with a list of custom indicators.
+1. Add [custom_indicators_getter](Widget-Constructor.md#custom_indicators_getter) key to the widget constructor. Its value is a function that returns a Promise object with a list of custom indicators.
 
     ```javascript
     {
@@ -120,11 +120,11 @@ The instruction below explains how to display chart data as an indicator. Please
     }
     ```
 
-1. Update your widget's initialization code to [create](Chart-Methods#createstudyname-forceoverlay-lock-inputs-overrides-options) this indicator when the chart is ready.
+1. Update your widget's initialization code to [create](Chart-Methods.md#createstudyname-forceoverlay-lock-inputs-overrides-options) this indicator when the chart is ready.
 
 ## Examples
 
-1. Add the indicator to the Charting Library using [custom_indicators_getter](Widget-Constructor#custom_indicators_getter) option.
+1. Add the indicator to the Charting Library using [custom_indicators_getter](Widget-Constructor.md#custom_indicators_getter) option.
 1. Change your widget's initialization code. Here is an example.
 
     ```javascript

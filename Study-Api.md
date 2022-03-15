@@ -49,7 +49,7 @@ Unmerges the study down (if possible).
     * `"as-series"` - attach the study to the price scale where the main series is attached (it is only applicable if the study and the main series are located on the same pane)
     * `entityId` - attach the study to the same price axis as a study with a corresponding `entityId`
 
-Changes the price scale of the study. See [here](Panes-And-Scales-Behavior) more information about panes and scales behavior in relation to studies.
+Changes the price scale of the study. See [here](Panes-And-Scales-Behavior.md) more information about panes and scales behavior in relation to studies.
 
 ### isVisible()
 
@@ -71,7 +71,7 @@ Places the study behind all other chart objects.
 
 ### applyOverrides(overrides)
 
-1. `overrides` - new [overrides](Studies-Overrides) for the study
+1. `overrides` - new [overrides](Studies-Overrides.md) for the study
 
 Applies `overrides` to the study.
 

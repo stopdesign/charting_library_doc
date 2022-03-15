@@ -71,7 +71,7 @@ Here are a few steps for those who want to have their own chart storage:
 
 If you decided to develop your own storage that accepts predefined REST API requests, here is the description of the end-points that you'll need to implement.
 
-- Charting Library sends HTTP/HTTPS commands to `charts_storage_url/charts_storage_api_version/charts?client=client_id&user=user_id` for charts and `charts_storage_url/charts_storage_api_version/study_templates?client=client_id&user=user_id` for study templates. `charts_storage_url`, `charts_storage_api_version`, `client_id` and `user_id` are the arguments of the [widget constructor](Widget-Constructor).
+- Charting Library sends HTTP/HTTPS commands to `charts_storage_url/charts_storage_api_version/charts?client=client_id&user=user_id` for charts and `charts_storage_url/charts_storage_api_version/study_templates?client=client_id&user=user_id` for study templates. `charts_storage_url`, `charts_storage_api_version`, `client_id` and `user_id` are the arguments of the [widget constructor](Widget-Constructor.md).
 - You should implement the processing of 4 requests: save / load / delete / list.
 
 #### LIST CHARTS
@@ -209,7 +209,7 @@ Your site URL or other link|Unique user ID for registered users along with a sep
 ## API handlers
 
 Prefer using the API handlers if you have your own back-end service that you can use for storing chart layouts and study templates.
-[save_load_adapter](Widget-Constructor#save_load_adapter) is an object containing the save/load API handlers. Using of the API handlers prevents the library from sending the REST requests. These functions are called by the library when users click on save/load UI elements.
+[save_load_adapter](Widget-Constructor.md#save_load_adapter) is an object containing the save/load API handlers. Using of the API handlers prevents the library from sending the REST requests. These functions are called by the library when users click on save/load UI elements.
 
 ### Chart layouts
 
@@ -276,15 +276,15 @@ Prefer using the API handlers if you have your own back-end service that you can
 
 **IMPORTANT:** All functions should return a `Promise` (or `Promise`-like objects).
 
-[In-memory example](Save-Load-Adapter-Example) for testing purposes.
+[In-memory example](Save-Load-Adapter-Example.md) for testing purposes.
 
 ## Low-level API
 
-Content of charts and study templates can be directly accessed using widget's [save() / load() methods](Widget-Methods#savecallback) and [createStudyTemplate() / applyStudyTemplate() methods](Chart-Methods#createstudytemplateoptions).
+Content of charts and study templates can be directly accessed using widget's [save() / load() methods](Widget-Methods.md#savecallback) and [createStudyTemplate() / applyStudyTemplate() methods](Chart-Methods.md#createstudytemplateoptions).
 
 You are able to save the JSONs where you wish. For example, you may embed them to your saved pages or user's working area etc.
 
-Commonly you might want to hide the save/load GUI elements if you use the Low-level API. You can disable [header_saveload featureset](Featuresets) to hide the save/load GUI elements from the header toolbar.
+Commonly you might want to hide the save/load GUI elements if you use the Low-level API. You can disable [header_saveload featureset](Featuresets.md) to hide the save/load GUI elements from the header toolbar.
 
 ## Additional use cases
 
@@ -292,10 +292,10 @@ Commonly you might want to hide the save/load GUI elements if you use the Low-le
 
 You might want to automatically save chart layouts. Here are the steps to implement it:
 
-1. Set a [threshold delay](Widget-Constructor#auto_save_delay) in seconds that is used to reduce the number of onAutoSaveNeeded calls.
-1. Subscribe to [onAutoSaveNeeded](Widget-Methods#subscribeevent-callback).
-1. Call the [saveChartToServer](Widget-Methods#savecharttoserveroncompletecallback-onfailcallback-options) method.
+1. Set a [threshold delay](Widget-Constructor.md#auto_save_delay) in seconds that is used to reduce the number of onAutoSaveNeeded calls.
+1. Subscribe to [onAutoSaveNeeded](Widget-Methods.md#subscribeevent-callback).
+1. Call the [saveChartToServer](Widget-Methods.md#savecharttoserveroncompletecallback-onfailcallback-options) method.
 
 ### Restoring last saved chart
 
-Usually users open an empty chart and load their chart layouts using the "Load Chart Layout..." dialog. But you may want to open the last saved chart layout on start. If you use the Low-level API, you can set the chart layout content to the [saved_data](Widget-Constructor#saved_data) field in the widget constructor. Otherwise, it is enough to assign `true` to the [load_last_chart](Widget-Constructor#load_last_chart) field.
+Usually users open an empty chart and load their chart layouts using the "Load Chart Layout..." dialog. But you may want to open the last saved chart layout on start. If you use the Low-level API, you can set the chart layout content to the [saved_data](Widget-Constructor.md#saved_data) field in the widget constructor. Otherwise, it is enough to assign `true` to the [load_last_chart](Widget-Constructor.md#load_last_chart) field.

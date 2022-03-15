@@ -1,4 +1,4 @@
-You can create more than 50 different shapes using [createMultipointShape(points, options)](Chart-Methods#createmultipointshapepoints-options). They are listed in the table below along with their default properties that can be changed using `overrides`.
+You can create more than 50 different shapes using [createMultipointShape(points, options)](Chart-Methods.md#createmultipointshapepoints-options). They are listed in the table below along with their default properties that can be changed using `overrides`.
 
 | shape             | backgroundColor | backgroundTransparency | bold  | borderColor | color   | drawBorder | fillBackground | fixedSize | font    | fontsize | italic | text    | wordWrap | wordWrapWidth | markerColor | textColor | linewidth | transparency | fontWeight |
 |-------------------|-----------------|------------------------|-------|-------------|---------|------------|----------------|-----------|---------|----------|--------|---------|----------|---------------|-------------|-----------|-----------|--------------|------------|

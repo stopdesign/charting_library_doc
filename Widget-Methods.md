@@ -163,17 +163,17 @@ widget.onShortcut("alt+s", function() {
 | `study` | 1.7 | An indicator is added to a chart. The arguments contain an object with the `value` field that corresponds with the name of the indicator. |
 | `undo` | 1.7 | |
 | `redo` | 1.7 | |
-| `undo_redo_state_changed` | 1.14 | The Undo/Redo state has been changed. The arguments contain an object with the state of the Undo/Redo stack. This object has the same structure as the result of [UndoRedoState](Widget-Methods#undoredostate) method |
+| `undo_redo_state_changed` | 1.14 | The Undo/Redo state has been changed. The arguments contain an object with the state of the Undo/Redo stack. This object has the same structure as the result of [UndoRedoState](Widget-Methods.md#undoredostate) method |
 | `reset_scales` | 1.7 | Reset scales button is clicked |
 | `compare_add` | 1.7 | A compare dialog is shown |
 | `add_compare` | 1.7 | A compare instrument is added |
 | `load_study` template | 1.7 | A study template is loaded |
 | `onTick` | | Last bar is updated |
-| `onAutoSaveNeeded` | | User changed the chart. `Chart change` means any user action that can be undone. The callback function will not be called more than once every 5 seconds. See also [auto_save_delay](Widget-Constructor#auto_save_delay) |
+| `onAutoSaveNeeded` | | User changed the chart. `Chart change` means any user action that can be undone. The callback function will not be called more than once every 5 seconds. See also [auto_save_delay](Widget-Constructor.md#auto_save_delay) |
 | `onScreenshotReady` | | A screenshot URL is returned by the server |
-| `onMarkClick` | | User clicked a [mark on a bar](Marks#marks-on-bars). Mark ID will be passed as an argument |
+| `onMarkClick` | | User clicked a [mark on a bar](Marks.md#marks-on-bars). Mark ID will be passed as an argument |
 | `onPlusClick` | | User clicked the "plus" button on the price scale. The callback function will receive an object containing coordinates, `price` and `symbol` |
-| `onTimescaleMarkClick` | | User clicked a [timescale mark](Marks#marks-on-the-timescale). Mark ID will be passed as an argument |
+| `onTimescaleMarkClick` | | User clicked a [timescale mark](Marks.md#marks-on-the-timescale). Mark ID will be passed as an argument |
 | `onSelectedLineToolChanged` | | Selected line tool is changed |
 | `study_event` | 1.15 | An event related to the study. The callback function receives two arguments: a study ID and an event type (currently possible values for this argument are `remove` and at version 16 - `price_scale_changed`) |
 | `series_event` | 16 | An event related to the series. The callback function receives an argument - an event type (currently the only possible value for this argument is `price_scale_changed`) |
@@ -199,13 +199,13 @@ Unsubscribes a previously subscribed `callback` function from a given `event` (t
 
 ### chart()
 
-Returns a chart object that you can use to call [Chart-Methods](Chart-Methods)
+Returns a chart object that you can use to call [Chart-Methods](Chart-Methods.md)
 
 ### getLanguage()
 
 *Starting from version 17.*
 
-Returns the [language](Localization) of the widget.
+Returns the [language](Localization.md) of the widget.
 
 ### setSymbol(symbol, interval, callback)
 
@@ -225,7 +225,7 @@ Calling this method closes all context menus, pop-ups or dialogs.
 
 ### selectLineTool(drawingId)
 
-1. `drawingId`: may be one of the [identifiers](Shapes-and-Overrides) or
+1. `drawingId`: may be one of the [identifiers](Shapes-and-Overrides.md) or
     1. `cursor`
     1. `dot`
     1. `arrow_cursor`
@@ -238,7 +238,7 @@ Selects a drawing or a cursor. It's the same as a single click on a drawing butt
 
 ### selectedLineTool()
 
-Returns an [identifier](Shapes-and-Overrides) of the selected drawing or cursor (see above).
+Returns an [identifier](Shapes-and-Overrides.md) of the selected drawing or cursor (see above).
 
 ### takeScreenshot()
 
@@ -260,19 +260,19 @@ This method takes a snapshot of the chart layout and returns it as an HTML canva
 
 ### lockAllDrawingTools()
 
-This method returns a [WatchedValue](WatchedValue) object that can be used to read/set/watch the state of Lock All Drawing Tools button.
+This method returns a [WatchedValue](WatchedValue.md) object that can be used to read/set/watch the state of Lock All Drawing Tools button.
 
 ### hideAllDrawingTools()
 
-This method returns a [WatchedValue](WatchedValue) object that can be used to read/set/watch the state of Hide All Drawing Tools button.
+This method returns a [WatchedValue](WatchedValue.md) object that can be used to read/set/watch the state of Hide All Drawing Tools button.
 
 ### magnetEnabled()
 
-This method returns a [WatchedValue](WatchedValue) object that can be used to read/set/watch the state of the Magnet (enabled - `true` or disabled - `false`).
+This method returns a [WatchedValue](WatchedValue.md) object that can be used to read/set/watch the state of the Magnet (enabled - `true` or disabled - `false`).
 
 ### magnetMode()
 
-This method returns a [WatchedValue](WatchedValue) object that can be used to read/set/watch the mode of the Magnet.
+This method returns a [WatchedValue](WatchedValue.md) object that can be used to read/set/watch the mode of the Magnet.
 
 Available modes:
 
@@ -295,13 +295,13 @@ This method exits full-screen mode.
 
 Saves the chart state to JS object. Charting Library will call your callback function and pass the state object as an argument.
 
-This call is part of the low-level [save/load API](Saving-and-Loading-Charts).
+This call is part of the low-level [save/load API](Saving-and-Loading-Charts.md).
 
 ### load(state)
 
 1. `state`: object
 
-Loads the chart from the `state` object. This call is part of the low-level [save/load API](Saving-and-Loading-Charts).
+Loads the chart from the `state` object. This call is part of the low-level [save/load API](Saving-and-Loading-Charts.md).
 
 ### getSavedCharts(callback)
 
@@ -494,7 +494,7 @@ console.log(widget.getTheme());
 
 This method changes the chart theme without reloading the chart.
 
-You can also use the [theme](Widget-Constructor#theme) in the Widget Constructor to create the chart with a custom theme.
+You can also use the [theme](Widget-Constructor.md#theme) in the Widget Constructor to create the chart with a custom theme.
 
 ### addCustomCSSFile(url)
 
@@ -502,14 +502,14 @@ You can also use the [theme](Widget-Constructor#theme) in the Widget Constructor
 
 This method was introduced in version `1.3`.
 
-Starting from version `1.4` use [custom_css_url](Widget-Constructor#custom_css_url) instead.
+Starting from version `1.4` use [custom_css_url](Widget-Constructor.md#custom_css_url) instead.
 
 ### applyOverrides(overrides)
 
 *Starting from version 1.5.*
 
 1. `overrides` is an object.
-    It is the same as [overrides](Widget-Constructor#overrides) in the Widget Constructor.
+    It is the same as [overrides](Widget-Constructor.md#overrides) in the Widget Constructor.
 
 This method applies "overrides" to the properties without reloading the chart.
 
@@ -517,13 +517,13 @@ This method applies "overrides" to the properties without reloading the chart.
 
 *Starting from version 1.9.*
 
-1. `overrides` is an object. It is the same as [studies_overrides](Widget-Constructor#studies_overrides) in the Widget Constructor.
+1. `overrides` is an object. It is the same as [studies_overrides](Widget-Constructor.md#studies_overrides) in the Widget Constructor.
 
 This method applies "overrides" to the styles or inputs of the indicators without reloading the chart.
 
 ## :chart: Trading Terminal only
 
-The following methods are available in [Trading Terminal](Trading-Terminal) only.
+The following methods are available in [Trading Terminal](Trading-Terminal.md) only.
 
 ### :chart: watchList()
 
@@ -577,11 +577,11 @@ Returns an object to manage the watchlist. The object has the following methods:
 
 1. `index`: index of a chart starting from `0`. `index` is `0` by default.
 
-Returns a chart object that you can use to call [Chart-Methods](Chart-Methods)
+Returns a chart object that you can use to call [Chart-Methods](Chart-Methods.md)
 
 ### :chart: activeChart()
 
-Returns a chart object of the active chart that you can use to call [Chart-Methods](Chart-Methods)
+Returns a chart object of the active chart that you can use to call [Chart-Methods](Chart-Methods.md)
 
 ### :chart: chartsCount()
 
@@ -603,7 +603,7 @@ Returns the current layout name. If the current layout has not yet been saved th
 
 ### :chart: symbolSync()
 
-Returns a [WatchedValue](WatchedValue) object that can be used to read/set/watch the state of symbol sync between charts.
+Returns a [WatchedValue](WatchedValue.md) object that can be used to read/set/watch the state of symbol sync between charts.
 
 ```javascript
 if (widget.symbolSync().value()) {
@@ -613,7 +613,7 @@ if (widget.symbolSync().value()) {
 
 ### :chart: intervalSync()
 
-Returns a [WatchedValue](WatchedValue) object that can be used to read/set/watch the state of interval sync between charts.
+Returns a [WatchedValue](WatchedValue.md) object that can be used to read/set/watch the state of interval sync between charts.
 
 ```javascript
 widget.intervalSync().setValue(true);
@@ -621,7 +621,7 @@ widget.intervalSync().setValue(true);
 
 ### :chart: crosshairSync()
 
-Returns a [WatchedValue](WatchedValue) object that can be used to read/set/watch the state of crosshair sync between charts.
+Returns a [WatchedValue](WatchedValue.md) object that can be used to read/set/watch the state of crosshair sync between charts.
 
 ```javascript
 widget.crosshairSync().setValue(true);
@@ -629,7 +629,7 @@ widget.crosshairSync().setValue(true);
 
 ### :chart: timeSync()
 
-Returns a [WatchedValue](WatchedValue) object that can be used to read/set/watch the state of time sync between charts.
+Returns a [WatchedValue](WatchedValue.md) object that can be used to read/set/watch the state of time sync between charts.
 
 ```javascript
 widget.timeSync().setValue(true);
@@ -637,8 +637,8 @@ widget.timeSync().setValue(true);
 
 ## See Also
 
-* [Chart-Methods](Chart-Methods)
-* [Widget Constructor](Widget-Constructor)
-* [Saving and Loading Charts](Saving-and-Loading-Charts)
-* [Overriding Default Properties of the Studies](Studies-Overrides)
-* [Overriding Default Properties of the Chart](Overrides)
+* [Chart-Methods](Chart-Methods.md)
+* [Widget Constructor](Widget-Constructor.md)
+* [Saving and Loading Charts](Saving-and-Loading-Charts.md)
+* [Overriding Default Properties of the Studies](Studies-Overrides.md)
+* [Overriding Default Properties of the Chart](Overrides.md)

@@ -4,9 +4,9 @@ Charting library is a standalone solution that you download, host on your server
 
 ### What to do
 
-1. `git clone` your [copy of Charting Library](https://github.com/tradingview/charting_library) and then [run it](Running-Your-Charting-Library). You will get a working example of our chart running on your host.
+1. `git clone` your [copy of Charting Library](https://github.com/tradingview/charting_library) and then [run it](Running-Your-Charting-Library.md). You will get a working example of our chart running on your host.
 
-2. Plug your data into Charting Library using [one of our APIs](Connecting-Data).
+2. Plug your data into Charting Library using [one of our APIs](Connecting-Data.md).
 
 3. Customize your charts (optional).
 
@@ -16,8 +16,8 @@ We’ve got a [public GitHub repository](https://github.com/tradingview/charting
 
 ### Trading Terminal
 
-:chart: Trading Terminal is a ready-to-use product for those who want to have a great charting solution along with the ability to trade right from the chart. [Read more](Trading-Terminal).
+:chart: Trading Terminal is a ready-to-use product for those who want to have a great charting solution along with the ability to trade right from the chart. [Read more](Trading-Terminal.md).
 
 ### Best Practices
 
-Reading the article with [Best Practices](Best-Practices) will prevent you from making the most common mistakes and will **save your time**. If you have a question, you can give a try to our thoroughly prepared [FAQ](Frequently-Asked-Questions) or [ask the community](https://github.com/tradingview/charting_library/issues/).
+Reading the article with [Best Practices](Best-Practices.md) will prevent you from making the most common mistakes and will **save your time**. If you have a question, you can give a try to our thoroughly prepared [FAQ](Frequently-Asked-Questions.md) or [ask the community](https://github.com/tradingview/charting_library/issues/).

@@ -1,4 +1,4 @@
-Traiding Terminal sends HTTP/HTTPS commands to `charts_storage_url/charts_storage_api_version/drawing_templates?client=client_id&user=user_id`. `charts_storage_url`, `charts_storage_api_version`, `client_id` and `user_id` are the arguments of the [widget constructor](Widget-Constructor).
+Traiding Terminal sends HTTP/HTTPS commands to `charts_storage_url/charts_storage_api_version/drawing_templates?client=client_id&user=user_id`. `charts_storage_url`, `charts_storage_api_version`, `client_id` and `user_id` are the arguments of the [widget constructor](Widget-Constructor.md).
 You should implement the processing of 4 requests: save template / load template / delete template / list templates.
 
 #### LIST TEMPLATES
@@ -62,7 +62,7 @@ We do not guarantee its stability. Also, note that we delete the data in the sto
 
 *Starting from version 1.12.*
 
-One of the parameters in [Widget Constructor](Widget-Constructor#save_load_adapter), this is basically an object containing the save/load functions. It is used to customize the `Templates` dropdown behaviour on Drawing settings floating panel. In adition to required fields you should add drawing templates methods:
+One of the parameters in [Widget Constructor](Widget-Constructor.md#save_load_adapter), this is basically an object containing the save/load functions. It is used to customize the `Templates` dropdown behaviour on Drawing settings floating panel. In adition to required fields you should add drawing templates methods:
 
 1. `getDrawingTemplates(toolName: string): Promise<string[]>`
 
@@ -90,4 +90,4 @@ One of the parameters in [Widget Constructor](Widget-Constructor#save_load_adapt
 
 **IMPORTANT:** All functions should return a `Promise` (or `Promise`-like objects).
 
-[In-memory example](Save-Load-Adapter-Example) for testing purposes.
+[In-memory example](Save-Load-Adapter-Example.md) for testing purposes.

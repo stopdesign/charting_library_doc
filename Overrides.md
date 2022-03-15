@@ -84,7 +84,7 @@ mainSeriesProperties.prevClosePriceLineColor: 'rgba( 85, 85, 85, 1)'
 mainSeriesProperties.lockScale: false
 
 mainSeriesProperties.minTick: minTick value is a string of 3 CSV: pricescale, minmove, fractional.
-Look [here](Symbology#minmov-pricescale-minmove2-fractional) for more information about these values.
+Look [here](Symbology.md#minmov-pricescale-minmove2-fractional) for more information about these values.
 
 Below is a list of all possible values, represented as an object for better readability.
 

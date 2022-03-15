@@ -40,7 +40,7 @@ GOOG|0.1|Google
 
 Request: `GET /config`
 
-Response: Library expects to receive a JSON response of the same structure as a result of JS API [onReady() call](JS-Api#onreadycallback).
+Response: Library expects to receive a JSON response of the same structure as a result of JS API [onReady() call](JS-Api.md#onreadycallback).
 
 Also there should be 2 additional properties:
 
@@ -70,8 +70,8 @@ Request: `GET /symbol_info?group=<group_name>`
 Example: `GET /symbol_info?group=NYSE`
 
 Response: Response is expected to be an object with properties listed below.
-Each property is treated as table column, as described above (see [response-as-a-table](UDF#response-as-a-table-concept)).
-The response structure is similar (but **not equal**) to [SymbolInfo](Symbology#symbolinfo-structure) so please read the description to learn about the details of each field.
+Each property is treated as table column, as described above (see [response-as-a-table](UDF.md#response-as-a-table-concept)).
+The response structure is similar (but **not equal**) to [SymbolInfo](Symbology.md#symbolinfo-structure) so please read the description to learn about the details of each field.
 
 * `symbol`
 * `description`
@@ -131,7 +131,7 @@ Request: `GET /symbols?symbol=<symbol>`
 
 Example: `GET /symbols?symbol=AAL`, `GET /symbols?symbol=NYSE:MSFT`
 
-A JSON response of the same structure as [SymbolInfo](Symbology#symbolinfo-structure)
+A JSON response of the same structure as [SymbolInfo](Symbology.md#symbolinfo-structure)
 
 **Note:** this call will be requested if your data feed sent `supports_group_request: false` and `supports_search: true` in the configuration data.
 
@@ -140,13 +140,13 @@ A JSON response of the same structure as [SymbolInfo](Symbology#symbolinfo-struc
 Request: `GET /search?query=<query>&type=<type>&exchange=<exchange>&limit=<limit>`
 
 * `query`: string. Text typed by the user in the Symbol Search edit box
-* `type`: string. One of the symbol types [supported](JS-Api#symbols_types) by your back-end
-* `exchange`: string. One of the exchanges [supported](JS-Api#exchanges) by your back-end
+* `type`: string. One of the symbol types [supported](JS-Api.md#symbols_types) by your back-end
+* `exchange`: string. One of the exchanges [supported](JS-Api.md#exchanges) by your back-end
 * `limit`: integer. The maximum number of symbols in a response
 
 Example: `GET /search?query=AA&type=stock&exchange=NYSE&limit=15`
 
-A response is expected to be an array of symbol objects as in [respective JS API call](JS-Api#searchsymbolsuserinput-exchange-symboltype-onresultreadycallback)
+A response is expected to be an array of symbol objects as in [respective JS API call](JS-Api.md#searchsymbolsuserinput-exchange-symboltype-onresultreadycallback)
 
 **Note:** this call will be requested if your data feed sent `supports_group_request: false` and `supports_search: true` in the configuration data.
 
@@ -176,7 +176,7 @@ A response is expected to be an object with some properties listed below. Each p
 
 **Notes:**
 
-1. Bar time for daily bars should be 00:00 UTC and is expected to be a trading day (not a day when the session starts). Charting Library aligns the time according to the [Session](Symbology#session) from SymbolInfo.
+1. Bar time for daily bars should be 00:00 UTC and is expected to be a trading day (not a day when the session starts). Charting Library aligns the time according to the [Session](Symbology.md#session) from SymbolInfo.
 
 1. 1. Bar time for monthly bars should be 00:00 UTC and be the first trading day of the month.
 
@@ -239,7 +239,7 @@ Request: `GET /marks?symbol=<ticker_name>&from=<unix_timestamp>&to=<unix_timesta
 * `resolution`: string
 
 A response is expected to be an object with some properties listed below.
-This object is similar to [respective response](JS-Api#getmarkssymbolinfo-from-to-ondatacallback-resolution) in JS API, but each property is treated as a table column, as described above.
+This object is similar to [respective response](JS-Api.md#getmarkssymbolinfo-from-to-ondatacallback-resolution) in JS API, but each property is treated as a table column, as described above.
 
 ```javascript
 {
@@ -292,7 +292,7 @@ A response is an object with the following keys.
 
 * `s`: Status code for the request. Expected values are: `ok` or `error`
 * `errmsg`: Error message. Should be present only when `s = 'error'`
-* `d`: [symbols data](Quotes) Array
+* `d`: [symbols data](Quotes.md) Array
 
 Example:
 

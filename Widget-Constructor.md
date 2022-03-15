@@ -12,7 +12,7 @@ new TradingView.widget({
 });
 ```
 
-Below is a complete list of supported parameters. Use [Widget methods](Widget-Methods) if you wish to modify the parameters after the creation of the Charting Library.
+Below is a complete list of supported parameters. Use [Widget methods](Widget-Methods.md) if you wish to modify the parameters after the creation of the Charting Library.
 
 `* - Required`
 
@@ -68,7 +68,7 @@ Below is a complete list of supported parameters. Use [Widget methods](Widget-Me
 
 ### symbol, interval*
 
-The default symbol & time interval of your chart. The `interval` value is described in the [Section](Resolution).
+The default symbol & time interval of your chart. The `interval` value is described in the [Section](Resolution.md).
 
 ```javascript
 symbol: 'A',
@@ -91,7 +91,7 @@ container: document.getElementById("tv_chart_container"),
 
 ### datafeed*
 
-JavaScript object that implements the ([JS API](JS-Api)) interface to supply the chart with data.
+JavaScript object that implements the ([JS API](JS-Api.md)) interface to supply the chart with data.
 
 ```javascript
 datafeed: new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com")
@@ -109,7 +109,7 @@ timeframe: '3M',
 ### timezone
 
 Default timezone of the chart. The time on the timescale is displayed according to this timezone.
-See the [list of supported timezones](Symbology#timezone) for available values. Set it to `exchange` to use the exchange timezone. Use the [overrides](#overrides) section if you wish to override the default value.
+See the [list of supported timezones](Symbology.md#timezone) for available values. Set it to `exchange` to use the exchange timezone. Use the [overrides](#overrides) section if you wish to override the default value.
 
 ```javascript
 timezone: "America/New_York",
@@ -254,7 +254,7 @@ JS object containing saved chart content meta info. This object should have the 
 
 ### locale
 
-Locale to be used by Charting Library. See [Localization](Localization) section for details.
+Locale to be used by Charting Library. See [Localization](Localization.md) section for details.
 
 ```javascript
 locale: 'en',
@@ -309,11 +309,11 @@ overrides: {
 }
 ```
 
-This code will change the default series style to "line". All customizable properties are listed in [separate article](Overrides). You can use [Drawings-Overrides](Drawings-Overrides) starting from v 1.5.
+This code will change the default series style to "line". All customizable properties are listed in [separate article](Overrides.md). You can use [Drawings-Overrides](Drawings-Overrides.md) starting from v 1.5.
 
 ### disabled_features, enabled_features
 
-The array containing names of features that should be enabled/disabled by default. `Feature` means part of the functionality of the chart (part of the UI/UX). Supported features are listed [here](Featuresets).
+The array containing names of features that should be enabled/disabled by default. `Feature` means part of the functionality of the chart (part of the UI/UX). Supported features are listed [here](Featuresets.md).
 
 Example:
 
@@ -336,7 +336,7 @@ Function that returns a Promise object with an array of your custom indicators.
 
 `PineJS` variable will be passed as the first argument of this function and can be used inside your indicators to access internal helper functions.
 
-See more details [here](Creating-Custom-Studies).
+See more details [here](Creating-Custom-Studies.md).
 
 ```javascript
 custom_indicators_getter: function(PineJS) {
@@ -356,7 +356,7 @@ preset: "mobile",
 
 ### studies_overrides
 
-Use this option to customize the style or inputs of the indicators. You can also customize the styles and inputs of the `Compare` series using this argument. See more details [here](Studies-Overrides)
+Use this option to customize the style or inputs of the indicators. You can also customize the styles and inputs of the `Compare` series using this argument. See more details [here](Studies-Overrides.md)
 
 ```javascript
 studies_overrides: {
@@ -366,10 +366,10 @@ studies_overrides: {
 
 ### time_frames
 
-List of visible timeframes that can be selected at the bottom of the chart. See [this topic](Time-Frames) to learn more about timeframes. Timeframe is an object containing following properties:
+List of visible timeframes that can be selected at the bottom of the chart. See [this topic](Time-Frames.md) to learn more about timeframes. Timeframe is an object containing following properties:
 
 * `text` - a string with the following format: `<integer><y|m|d>` ( \d+(y|m|d) as Regex ). It defines the range to be set.
-* `resolution` - a string with the format described [here](Resolution). It defines the resolution to be set.
+* `resolution` - a string with the format described [here](Resolution.md). It defines the resolution to be set.
 * `description` (optional) - a string that is displayed in the pop-up menu. If it isn't set then the `title` property is used.
 * `title` (optional) - a string representation of the time frame. If it is not set then the title is generated based on the `text` property.
 
@@ -387,7 +387,7 @@ time_frames: [
 
 ### charts_storage_url, client_id, user_id
 
-These arguments are related to the high-level API for saving/loading the charts. See more details [here](Saving-and-Loading-Charts).
+These arguments are related to the high-level API for saving/loading the charts. See more details [here](Saving-and-Loading-Charts.md).
 
 ```javascript
 charts_storage_url: 'http://storage.yourserver.com',
@@ -405,7 +405,7 @@ charts_storage_api_version: "1.1",
 
 ### load_last_chart
 
-Set this parameter to `true` if you want the library to load the last saved chart for a user (you should implement [save/load](Saving-and-Loading-Charts) first to make it work).
+Set this parameter to `true` if you want the library to load the last saved chart for a user (you should implement [save/load](Saving-and-Loading-Charts.md) first to make it work).
 
 ```javascript
 load_last_chart: true,
@@ -448,7 +448,7 @@ loading_screen: { backgroundColor: "#000000" }
 
 ### favorites
 
-Items that should be marked as favorite by default. This option requires that the usage of localstorage is disabled (see [featuresets](Featuresets) to know more). The `favorites` property is supposed to be an object. The following properties are supported:
+Items that should be marked as favorite by default. This option requires that the usage of localstorage is disabled (see [featuresets](Featuresets.md) to know more). The `favorites` property is supposed to be an object. The following properties are supported:
 
 * **intervals**: an array of time intervals that are marked as favorite. Example: `["D", "2D"]`
 * **chartTypes**: an array of chart types that are marked as favorite. The names of chart types are identical to chart's UI in the English version. Example: `["Area", "Candles"]`.
@@ -462,7 +462,7 @@ favorites: {
 
 ### save_load_adapter
 
-An object containing the save/load functions. It is used to implement a custom save/load algorithm. Please see details and an example on [Saving and Loading Charts page](Saving-and-Loading-Charts#api-handlers).
+An object containing the save/load functions. It is used to implement a custom save/load algorithm. Please see details and an example on [Saving and Loading Charts page](Saving-and-Loading-Charts.md#api-handlers).
 
 ### settings_adapter
 
@@ -512,7 +512,7 @@ compare_symbols: [
 
 ### widgetbar
 
-:chart: *applies to [Trading Terminal](Trading-Terminal) only*
+:chart: *applies to [Trading Terminal](Trading-Terminal.md) only*
 
 The object that contains settings for the widget panel on the right side of the chart. Watchlist, news, details and data window widgets on the right side of the chart can be enabled using the `widgetbar` field in Widget constructor:
 
@@ -538,7 +538,7 @@ widgetbar: {
 
 ### rss_news_feed
 
-:chart: *applies to [Trading Terminal](Trading-Terminal) only*
+:chart: *applies to [Trading Terminal](Trading-Terminal.md) only*
 
 Use this property to change the RSS feed for news. You can set a different RSS for each symbol type or use a single RSS for all symbols. The object should have the `default` property, other properties are optional. The names of the properties match the symbol types. Each property is an object (or an array of objects) with the following properties:
 
@@ -587,7 +587,7 @@ rss_news_feed: {
 
 ### news_provider
 
-:chart: *applies to [Trading Terminal](Trading-Terminal) only*
+:chart: *applies to [Trading Terminal](Trading-Terminal.md) only*
 
 An object that specifies the news provider. It may contain the following properties:
 
@@ -641,9 +641,9 @@ news_provider: {
 
 ### broker_factory
 
-:chart: *applies to [Trading Terminal](Trading-Terminal) only*
+:chart: *applies to [Trading Terminal](Trading-Terminal.md) only*
 
-Use this field to pass the function that returns a new object which implements [Broker API](Broker-API). This is a function that accepts [Trading Host](Trading-Host) and returns [Broker API](Broker-API).
+Use this field to pass the function that returns a new object which implements [Broker API](Broker-API.md). This is a function that accepts [Trading Host](Trading-Host.md) and returns [Broker API](Broker-API.md).
 
 ```javascript
 broker_factory: function(host) { ... }
@@ -651,9 +651,9 @@ broker_factory: function(host) { ... }
 
 ### broker_config
 
-:chart: *applies to [Trading Terminal](Trading-Terminal) only*
+:chart: *applies to [Trading Terminal](Trading-Terminal.md) only*
 
-Use this field to set the configuration flags for the Trading Terminal. [Read more](Trading-Objects-and-Constants#configflags-object).
+Use this field to set the configuration flags for the Trading Terminal. [Read more](Trading-Objects-and-Constants.md#configflags-object).
 
 ```javascript
 broker_config: {
@@ -665,8 +665,8 @@ broker_config: {
 
 ## See Also
 
-* [Widget Methods](Widget-Methods)
-* [Featuresets](Featuresets)
-* [Saving and Loading Charts](Saving-and-Loading-Charts)
-* [Overriding Default Properties of the Studies](Studies-Overrides)
-* [Overriding Default Properties of the Chart](Overrides)
+* [Widget Methods](Widget-Methods.md)
+* [Featuresets](Featuresets.md)
+* [Saving and Loading Charts](Saving-and-Loading-Charts.md)
+* [Overriding Default Properties of the Studies](Studies-Overrides.md)
+* [Overriding Default Properties of the Chart](Overrides.md)

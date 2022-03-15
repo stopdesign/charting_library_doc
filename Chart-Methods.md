@@ -2,7 +2,7 @@ Here is a list of methods supported by the chart.
 
 **Before version 1.4.** You can call these methods using widget object returned to you by widget's constructor.
 
-**Starting from version 1.5.** You can call these methods using chart object returned to you by widget's methods [chart(index)](Widget-Methods#chart-chartindex) or [activeChart()](Widget-Methods#chart-activechart).
+**Starting from version 1.5.** You can call these methods using chart object returned to you by widget's methods [chart(index)](Widget-Methods.md#chart-chartindex) or [activeChart()](Widget-Methods.md#chart-activechart).
 
 ## Methods
 
@@ -82,7 +82,7 @@ Here is a list of methods supported by the chart.
 
 ### onDataLoaded()
 
-You can subscribe using [Subscription](Subscription) object returned by this function to be notified when new history bars are loaded. You can also use the same object to unsubscribe from the event.
+You can subscribe using [Subscription](Subscription.md) object returned by this function to be notified when new history bars are loaded. You can also use the same object to unsubscribe from the event.
 
 Example:
 
@@ -96,7 +96,7 @@ widget.activeChart().onDataLoaded().subscribe(
 
 ### onSymbolChanged()
 
-You can subscribe using [Subscription](Subscription) object returned by this function to be notified when the symbol is changed. You can also use the same object to unsubscribe from the event.
+You can subscribe using [Subscription](Subscription.md) object returned by this function to be notified when the symbol is changed. You can also use the same object to unsubscribe from the event.
 
 Example:
 
@@ -106,7 +106,7 @@ widget.activeChart().onSymbolChanged().subscribe(null, () => console.log('The sy
 
 ### onIntervalChanged()
 
-You can subscribe using [Subscription](Subscription) object returned by this function to be notified when the interval is changed. You can also use the same object to unsubscribe from the event.
+You can subscribe using [Subscription](Subscription.md) object returned by this function to be notified when the interval is changed. You can also use the same object to unsubscribe from the event.
 When the event is fired it will provide the following arguments:
 
 1. `interval`: new interval
@@ -136,7 +136,7 @@ widget.activeChart().onIntervalChanged().subscribe(null,
 
 ### onChartTypeChanged()
 
-You can subscribe using [Subscription](Subscription) object returned by this function to be notified when the chart type is changed. You can also use the same object to unsubscribe from the event.
+You can subscribe using [Subscription](Subscription.md) object returned by this function to be notified when the chart type is changed. You can also use the same object to unsubscribe from the event.
 When the event is fired it will provide the `chartType` argument, possible values are described [here](#setcharttypetype).
 
 Example:
@@ -189,7 +189,7 @@ widget.activeChart().crossHairMoved(({ time, price }) => console.log(time, price
 
 *Since version 1.13.*
 
-You can subscribe using [Subscription](Subscription) object returned by this function to be notified when visible time range is changed. You can also use the same object to unsubscribe from the event.
+You can subscribe using [Subscription](Subscription.md) object returned by this function to be notified when visible time range is changed. You can also use the same object to unsubscribe from the event.
 
 When the event is fired it will provide the following arguments:
 
@@ -241,7 +241,7 @@ widget.activeChart().setSymbol('IBM');
 
 ### setResolution(resolution, callback)
 
-1. `resolution`: string. Format is described in another [article](Resolution).
+1. `resolution`: string. Format is described in another [article](Resolution.md).
 1. `callback`: function(), optional
 
 Makes the chart change its resolution. Callback function is called once new data is loaded.
@@ -369,7 +369,7 @@ widget.activeChart().setChartType(12);
 
 1. `timezone`: string
 
-See [timezone](Widget-Constructor#timezone) for more information.
+See [timezone](Widget-Constructor.md#timezone) for more information.
 
 Example:
 
@@ -383,7 +383,7 @@ Makes the chart change its timezone.
 
 *Since version 1.15.*
 
-Returns the current [timezone](Widget-Constructor#timezone) of the chart.
+Returns the current [timezone](Widget-Constructor.md#timezone) of the chart.
 
 ```javascript
 console.log(widget.activeChart().getTimezone());
@@ -451,7 +451,7 @@ widget.activeChart().setEntityVisibility(id, false); // Hide the entity with id
 1. `forceOverlay`: forces the Charting Library to place the created study on the main pane
 1. `lock`: boolean, shows whether a user will be able to remove/change/hide the study or not
 1. `inputs`: (starting from version `1.2`) an array of study inputs. This array is expected to contain input values in the same order as in the study properties dialog.
-1. `overrides`: (starting from version `1.2`) an object [containing properties](Studies-Overrides) you'd like to set for your new study. Note that you should not specify the study name. Start a property path with a plot name.
+1. `overrides`: (starting from version `1.2`) an object [containing properties](Studies-Overrides.md) you'd like to set for your new study. Note that you should not specify the study name. Start a property path with a plot name.
 1. `options`: object with the the following keys:
     * `checkLimit` - if it is `true` then the study limit dialog will be shown if the limit is exceeded.
     * `priceScale` - preferred price scale for the study. Possible values are:
@@ -461,7 +461,7 @@ widget.activeChart().setEntityVisibility(id, false); // Hide the entity with id
         * `as-series` - attach the study to the price scale where the main series is attached (it is only applicable the study is added to the pane with the main series)
     * `disableUndo` - prevents adding of the action to the undo stack
 
-See [here](Panes-And-Scales-Behavior) more information about panes and scales behavior in relation to studies.
+See [here](Panes-And-Scales-Behavior.md) more information about panes and scales behavior in relation to studies.
 
 Returns a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) to `entityId` of the created study.
 
@@ -492,7 +492,7 @@ widget.activeChart().createStudy('Compare', false, false, ["open", 'AAPL']);
 
 1. `entityId`: object. Value that is returned when a study is created via API.
 
-Returns an instance of the [StudyApi](Study-Api) that allows you to interact with the study.
+Returns an instance of the [StudyApi](Study-Api.md) that allows you to interact with the study.
 
 ```javascript
 widget.activeChart().getStudyById(id).setVisible(false);
@@ -500,7 +500,7 @@ widget.activeChart().getStudyById(id).setVisible(false);
 
 ### getSeries()
 
-Returns an instance of the [SeriesApi](Series-Api) that allows you to interact with the main series.
+Returns an instance of the [SeriesApi](Series-Api.md) that allows you to interact with the main series.
 
 ```javascript
 widget.activeChart().getSeries().setVisible(false);
@@ -519,7 +519,7 @@ chart.showPropertiesDialog(chart.getAllShapes()[0].id);`
 
 ### createShape(point, options)
 
-This is a shorthand for [createMultipointShape](#createmultipointshapepoints-options) method, which can be used for [shapes](Shapes-and-Overrides) based on one point.
+This is a shorthand for [createMultipointShape](#createmultipointshapepoints-options) method, which can be used for [shapes](Shapes-and-Overrides.md) based on one point.
 
 1. `point`: object `{time, [price], [channel]}`
     * `time`: unix time. It's the only mandatory key in this function argument.
@@ -528,7 +528,7 @@ This is a shorthand for [createMultipointShape](#createmultipointshapepoints-opt
     * `channel`: If the price is not set then `channel` value defines where the shape is placed relative to the bar. Possible values are `open`, `high`, `low`, `close`.
         If no channel is specified then 'open' is a default value.
 1. `options`: object `{shape, [text], [lock], [overrides]}`, it is the same as in [createMultipointShape](#createmultipointshapepoints-options) method.
-    * `shape` may be one of the [identifiers](Shapes-and-Overrides) that require only one point.
+    * `shape` may be one of the [identifiers](Shapes-and-Overrides.md) that require only one point.
         `flag` is the default value.
     * `text` is an optional argument. It's the text that will be included in the shape if it's supported. Additional field `showLabel` in overrides may be necessary.
     * `lock` shows whether a user will be able to remove/change/hide the shape or not.
@@ -559,7 +559,7 @@ widget.activeChart().createShape({ time: 1514764800 }, { shape: 'vertical_line' 
     * `channel`: If the price is not set then `channel` value defines where the shape is placed relative to the bar. Possible values are `open`, `high`, `low`, `close`.
         If no channel is specified, 'open' is a default value.
 1. `options`: object `{shape, [text], [lock], [overrides]}`
-    * `shape` may be one of the [identifiers](Shapes-and-Overrides)
+    * `shape` may be one of the [identifiers](Shapes-and-Overrides.md)
     * `text` is an optional argument. It's the text that will be included in the shape if it's supported. Additional field `showLabel` in overrides may be necessary.
     * `lock` shows whether a user will be able to remove/change/hide the shape or not.
     * `disableSelection` prevents selecting of the shape
@@ -574,7 +574,7 @@ widget.activeChart().createShape({ time: 1514764800 }, { shape: 'vertical_line' 
 
 The function returns `entityId` - unique ID of the shape if the creation was successful and `null` if it wasn't.
 
-Check out [Shapes and Overrides](Shapes-and-Overrides) for more information.
+Check out [Shapes and Overrides](Shapes-and-Overrides.md) for more information.
 
 This call creates a shape at a specific point on the chart provided that it's within the main series area.
 
@@ -599,7 +599,7 @@ widget.activeChart().createMultipointShape(
 
 1. `entityId`: object. The value that is returned when a shape is created via API
 
-Returns an instance of the [ShapeApi](Shape-Api) that allows you to interact with the shape.
+Returns an instance of the [ShapeApi](Shape-Api.md) that allows you to interact with the shape.
 
 ```javascript
 widget.activeChart().getShapeById(id).bringToFront();
@@ -635,7 +635,7 @@ widget.activeChart().removeAllStudies();
 
 ### getPanes()
 
-Returns an array of instances of the [PaneApi](Pane-Api) that allows you to interact with the panes.
+Returns an array of instances of the [PaneApi](Pane-Api.md) that allows you to interact with the panes.
 
 ```javascript
 widget.activeChart().getPanes()[1].moveTo(0);
@@ -643,7 +643,7 @@ widget.activeChart().getPanes()[1].moveTo(0);
 
 ### shapesGroupController()
 
-Returns an [API](Shapes-Group-Api) that can be used to work with groups of shapes.
+Returns an [API](Shapes-Group-Api.md) that can be used to work with groups of shapes.
 
 ```javascript
 widget.activeChart().shapesGroupController().createGroupFromSelection();
@@ -718,7 +718,7 @@ widget.activeChart().sendBackward([id]);
 
 Saves the study template to JS object. Charting Library will call your callback function and pass the state object as an argument.
 
-This call is a part of low-level [save/load API](Saving-and-Loading-Charts).
+This call is a part of low-level [save/load API](Saving-and-Loading-Charts.md).
 
 ```javascript
 const options = { saveSymbol: true, saveInterval: true };
@@ -731,7 +731,7 @@ const template = widget.activeChart().createStudyTemplate(options);
 
 Loads the study template from the `template` object.
 
-This call is a part of low-level [save/load API](Saving-and-Loading-Charts).
+This call is a part of low-level [save/load API](Saving-and-Loading-Charts.md).
 
 ```javascript
 widget.activeChart().applyStudyTemplate(template);
@@ -746,7 +746,7 @@ widget.activeChart().applyStudyTemplate(template);
 
 Creates a new trading order on the chart and returns an API-object that you can use to adjust its properties and behavior.
 
-It is strongly recommended to read [this article](Trading-Primitives) before using this call.
+It is strongly recommended to read [this article](Trading-Primitives.md) before using this call.
 
 API object methods:
 
@@ -829,7 +829,7 @@ widget.activeChart().createOrderLine()
 
 Creates a new trading position on the chart and returns an API-object that you can use to adjust its properties and behavior.
 
-It is strongly recommended to read [this article](Trading-Primitives) before using this call.
+It is strongly recommended to read [this article](Trading-Primitives.md) before using this call.
 
 API object methods:
 
@@ -919,7 +919,7 @@ widget.chart().createPositionLine()
 
 Creates a new trade execution on the chart and returns an API-object that you can use to control the execution properties.
 
-It is strongly recommended to read [this article](Trading-Primitives) before using this call.
+It is strongly recommended to read [this article](Trading-Primitives.md) before using this call.
 
 API object has a set of properties listed below. Each property should be used through respective accessors.
 For example, if you wish to work with `Extend Left` property, then use `getExtendLeft()` of `setExtendLeft()` methods.
@@ -992,7 +992,7 @@ console.log(widget.activeChart().symbolExt().full_name);
 
 ### resolution()
 
-Returns the chart's time interval. The format is described in this [article](Resolution).
+Returns the chart's time interval. The format is described in this [article](Resolution.md).
 
 ```javascript
 console.log(widget.activeChart().resolution());
@@ -1010,7 +1010,7 @@ console.log(widget.activeChart().getVisibleRange());
 
 *Starting from version 1.7.*
 
-Deprecated, use [Price Scale API](Price-Scale-Api#getVisiblePriceRange) instead.
+Deprecated, use [Price Scale API](Price-Scale-Api.md#getVisiblePriceRange) instead.
 
 Returns the object `{from, to}`. `from` and `to` are boundaries of the price scale visible range in main series area.
 
@@ -1119,7 +1119,7 @@ Exports data from the chart, returns a Promise object. This method doesn't load 
 
 *Starting from version 1.15.*
 
-Returns [SelectionApi](Selection-Api) to that can be used to change the chart selection and subscribe to chart selection changes.
+Returns [SelectionApi](Selection-Api.md) to that can be used to change the chart selection and subscribe to chart selection changes.
 
 ```javascript
 widget.activeChart().selection().clear();
@@ -1149,7 +1149,7 @@ widget.activeChart().setScrollEnabled(false);
 
 *Starting from version 18.*
 
-Returns an instance of the [TimeScaleApi](Time-Scale-Api) with methods associated with the time axis.
+Returns an instance of the [TimeScaleApi](Time-Scale-Api.md) with methods associated with the time axis.
 
 ```javascript
 var time = widget.activeChart().getTimeScale().coordinateToTime(100);
@@ -1217,8 +1217,8 @@ widget.activeChart().setPriceToBarRatioLocked(true, { disableUndo: false });
 
 ## See Also
 
-* [Widget Methods](Widget-Methods)
-* [Widget Constructor](Widget-Constructor)
-* [Saving and Loading Charts](Saving-and-Loading-Charts)
-* [Overriding Studies' Defaults](Studies-Overrides)
-* [Overriding Chart's Defaults](Overrides)
+* [Widget Methods](Widget-Methods.md)
+* [Widget Constructor](Widget-Constructor.md)
+* [Saving and Loading Charts](Saving-and-Loading-Charts.md)
+* [Overriding Studies' Defaults](Studies-Overrides.md)
+* [Overriding Chart's Defaults](Overrides.md)

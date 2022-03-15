@@ -6,7 +6,7 @@ JS API is a set of JS methods that needs to be implemented in order to connect y
 
 You should create a JS object that fetches data from your server when the Charting Library calls its methods.
 
-When you create an object that implements the described interface simply pass it to Library widget constructor through the [datafeed](Widget-Constructor#datafeed) argument.
+When you create an object that implements the described interface simply pass it to Library widget constructor through the [datafeed](Widget-Constructor.md#datafeed) argument.
 
 The Charting Library caches historical data on its own. You don't need to implement a client-side cache by yourself.
 
@@ -22,7 +22,7 @@ The Charting Library caches historical data on its own. You don't need to implem
 1. [getTimescaleMarks](#gettimescalemarkssymbolinfo-from-to-ondatacallback-resolution)
 1. [getServerTime](#getservertimecallback)
 
-:chart: [Trading Terminal](Trading-Terminal) specific:
+:chart: [Trading Terminal](Trading-Terminal.md) specific:
 
 1. [getQuotes](#getquotessymbols-ondatacallback-onerrorcallback)
 1. [subscribeQuotes](#subscribequotessymbols-fastsymbols-onrealtimecallback-listenerguid)
@@ -53,7 +53,7 @@ An array of filter descriptors. Filter descriptor is an object `{name, value}`. 
 
 #### supported_resolutions
 
-An array of supported resolutions. Resolution must be a string. Format is described in another [article](Resolution).
+An array of supported resolutions. Resolution must be a string. Format is described in another [article](Resolution.md).
 
 `supported_resolutions = undefined` or `supported_resolutions = []` leads to resolution widget including the default content.
 
@@ -119,22 +119,22 @@ This call is intended to provide the list of symbols that match the user's searc
 ]
 ```
 
-If no symbols are found, then callback should be called with an empty array. See more details about `ticker` value [here](Symbology#ticker)
+If no symbols are found, then callback should be called with an empty array. See more details about `ticker` value [here](Symbology.md#ticker)
 
 ### resolveSymbol(symbolName, onSymbolResolvedCallback, onResolveErrorCallback, extension)
 
 1. `symbolName`: string. Symbol name or `ticker` if provided.
-1. `onSymbolResolvedCallback`: function([SymbolInfo](Symbology#symbolinfo-structure))
+1. `onSymbolResolvedCallback`: function([SymbolInfo](Symbology.md#symbolinfo-structure))
 1. `onResolveErrorCallback`: function(reason)
 1. `extension`: optional object with additional parameters. It has the following fields:
     1. `currencyCode`: string. It may be provided to indicate the currency for conversion if `currency_codes` configuration
-    field is set and `currency_code` is provided in the original symbol information. Read more about [currency conversion](Price-Scale#currency-conversion).
+    field is set and `currency_code` is provided in the original symbol information. Read more about [currency conversion](Price-Scale.md#currency-conversion).
 
-Charting Library will call this function when it needs to get [SymbolInfo](Symbology#symbolinfo-structure) by symbol name.
+Charting Library will call this function when it needs to get [SymbolInfo](Symbology.md#symbolinfo-structure) by symbol name.
 
 ### getBars(symbolInfo, resolution, periodParams, onHistoryCallback, onErrorCallback)
 
-1. `symbolInfo`: [SymbolInfo](Symbology#symbolinfo-structure) object
+1. `symbolInfo`: [SymbolInfo](Symbology.md#symbolinfo-structure) object
 1. `resolution`: string
 1. `periodParams`: object with the following fields:
     1. `from` - unix timestamp, leftmost required bar time (inclusive end)
@@ -151,7 +151,7 @@ This function is called when the chart needs a history fragment defined by dates
 
 `Bar` is an object with the following fields:
 
-1. `time`: number. Amount of **milliseconds** since Unix epoch start in **UTC** timezone. `time` for daily bars is expected to be a trading day (not session start day) at 00:00 UTC. Charting Library adjusts time according to [Session](Symbology#session) from SymbolInfo.  `time` for monthly bars is the first trading day of the month without the time part.
+1. `time`: number. Amount of **milliseconds** since Unix epoch start in **UTC** timezone. `time` for daily bars is expected to be a trading day (not session start day) at 00:00 UTC. Charting Library adjusts time according to [Session](Symbology.md#session) from SymbolInfo.  `time` for monthly bars is the first trading day of the month without the time part.
 1. `open`: number. Bar's open value
 1. `high`: number. Bar's high value
 1. `low`: number. Bar's low value
@@ -183,7 +183,7 @@ If your data provider can return the exact amount of bars, it is preferable to u
 
 ### subscribeBars(symbolInfo, resolution, onRealtimeCallback, subscriberUID, onResetCacheNeededCallback)
 
-1. `symbolInfo`: [SymbolInfo](Symbology#symbolinfo-structure) object
+1. `symbolInfo`: [SymbolInfo](Symbology.md#symbolinfo-structure) object
 1. `resolution`: string
 1. `onRealtimeCallback`: function(bar)
     1. `bar`: object `{time, close, open, high, low, volume}`
@@ -216,19 +216,19 @@ Charting Library calls this function when it doesn't want to receive updates for
 
 *Optional.*
 
-1. `symbolInfo`: [SymbolInfo](Symbology#symbolinfo-structure) object
+1. `symbolInfo`: [SymbolInfo](Symbology.md#symbolinfo-structure) object
 1. `from`: unix timestamp (UTC). Leftmost visible bar's time.
 1. `to`: unix timestamp (UTC). Rightmost visible bar's time.
 1. `onDataCallback`: function(array of `mark`s)
 1. `resolution`: string
 
-The Library calls this function to get [marks](Marks#marks-on-bars) for visible bars range.
+The Library calls this function to get [marks](Marks.md#marks-on-bars) for visible bars range.
 
 The Library assumes that you will call `onDataCallback` only once per `getMarks` call.
 
 `mark` is an object that has the following properties:
 
-* `id`: unique mark ID. It will be passed to a [respective callback](Widget-Methods#subscribeevent-callback) when user clicks on a mark
+* `id`: unique mark ID. It will be passed to a [respective callback](Widget-Methods.md#subscribeevent-callback) when user clicks on a mark
 * `time`: unix time, UTC
 * `color`: `red` | `green` | `blue` | `yellow` | `{ border: '#ff0000', background: '#00ff00' }`
 * `text`: mark popup text. HTML supported
@@ -244,19 +244,19 @@ A few marks per bar are allowed (for now, the maximum is `10`). Marks outside of
 
 *Optional.*
 
-1. `symbolInfo`: [SymbolInfo](Symbology#symbolinfo-structure) object
+1. `symbolInfo`: [SymbolInfo](Symbology.md#symbolinfo-structure) object
 1. `from`: unix timestamp (UTC). Leftmost visible bar's time.
 1. `to`: unix timestamp (UTC). Rightmost visible bar's time.
 1. `onDataCallback`: function(array of `mark`s)
 1. `resolution`: string
 
-The Library calls this function to get [timescale marks](Marks#marks-on-the-timescale) for visible bars range.
+The Library calls this function to get [timescale marks](Marks.md#marks-on-the-timescale) for visible bars range.
 
 The Library assumes that you will call `onDataCallback` only once per `getTimescaleMarks` call.
 
 `mark` is an object that has the following properties:
 
-* `id`: unique mark ID. Will be passed to a [respective callback](Widget-Methods#subscribeevent-callback) when user clicks on a mark
+* `id`: unique mark ID. Will be passed to a [respective callback](Widget-Methods.md#subscribeevent-callback) when user clicks on a mark
 * `time`: unix time, UTC
 * `color`: `red` | `green` | `blue` | `yellow` | ... | `#000000`
 * `label`: a letter to be printed on a mark. Single character
@@ -280,27 +280,27 @@ It is used to display Countdown on the price scale.
 
 Example: `1445324591`.
 
-## [Trading Terminal](Trading-Terminal) specific
+## [Trading Terminal](Trading-Terminal.md) specific
 
 ### getQuotes(symbols, onDataCallback, onErrorCallback)
 
-:chart: *[Trading Terminal](Trading-Terminal) specific.*
+:chart: *[Trading Terminal](Trading-Terminal.md) specific.*
 
 1. `symbols`: array of symbols names
 1. `onDataCallback`: function(array of `data`)
-    1. `data`: [symbol quote data](Quotes#symbol-quote-data)
+    1. `data`: [symbol quote data](Quotes.md#symbol-quote-data)
 1. `onErrorCallback`: function(reason)
 
 This function is called when the Charting Library needs quote data. The charting library assumes that `onDataCallback` is called once when all the requested data is received.
 
 ### subscribeQuotes(symbols, fastSymbols, onRealtimeCallback, listenerGUID)
 
-:chart: *[Trading Terminal](Trading-Terminal) specific.*
+:chart: *[Trading Terminal](Trading-Terminal.md) specific.*
 
 1. `symbols`: array of symbols that should be updated rarely (once per minute). These symbols are included in the watchlist but they are not visible at the moment.
 1. `fastSymbols`: array of symbols that should be updated frequently (once every 10 seconds or more often)
 1. `onRealtimeCallback`: function(array of `data`)
-    1. `data`: [symbol quote data](Quotes#symbol-quote-data)
+    1. `data`: [symbol quote data](Quotes.md#symbol-quote-data)
 1. `listenerGUID`: unique identifier of the listener
 
 Trading Terminal calls this function when it wants to receive real-time quotes for a symbol.
@@ -309,7 +309,7 @@ The Charting Library assumes that you will call `onRealtimeCallback` every time 
 
 ### unsubscribeQuotes(listenerGUID)
 
-:chart: *[Trading Terminal](Trading-Terminal) specific.*
+:chart: *[Trading Terminal](Trading-Terminal.md) specific.*
 
 1. `listenerGUID`: unique identifier of the listener
 
@@ -319,9 +319,9 @@ Trading Terminal calls this function when it doesn't want to receive updates for
 
 ### subscribeDepth(symbolInfo, callback): string
 
-:chart: *[Trading Terminal](Trading-Terminal) specific.*
+:chart: *[Trading Terminal](Trading-Terminal.md) specific.*
 
-1. `symbolInfo`: [SymbolInfo](Symbology#symbolinfo-structure) object
+1. `symbolInfo`: [SymbolInfo](Symbology.md#symbolinfo-structure) object
 1. `callback`: function(depth)
     1. `depth`: object `{snapshot, asks, bids}`
         * `snapshot`: Boolean - if `true` `asks` and `bids` have full set of depth, otherwise they contain only updated levels.
@@ -334,7 +334,7 @@ This method should return a unique identifier (`subscriberUID`) that will be use
 
 ### unsubscribeDepth(subscriberUID)
 
-:chart: *[Trading Terminal](Trading-Terminal) specific.*
+:chart: *[Trading Terminal](Trading-Terminal.md) specific.*
 
 1. `subscriberUID`: String
 

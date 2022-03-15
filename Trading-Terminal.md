@@ -10,7 +10,7 @@ Trading Terminal repository is [here](https://github.com/tradingview/trading_pla
 
 ### Trading Capabilities
 
-You can trade right from the chart, and all you have to do to make this work is to implement your [Broker API](Broker-API) and plug it into the chart widget.
+You can trade right from the chart, and all you have to do to make this work is to implement your [Broker API](Broker-API.md) and plug it into the chart widget.
 
 ![images/tt_trading.png](images/tt_trading.png)
 
@@ -27,7 +27,7 @@ You can display orders/positions and account information in an interactive table
 
 **Read more about this feature:**
 
-* [How to enable Account Manager](Account-Manager)
+* [How to enable Account Manager](Account-Manager.md)
 
 ### DOM Widget
 
@@ -43,8 +43,8 @@ In the Trading Terminal, you can have the functionality of the Watchlist and Det
 
 **Read more about this feature:**
 
-* [How to enable sidebar quotes](Widget-Constructor#widgetbar)
-* How to provide the data for quotes: depends on the type of data integration that you use - [JS API](JS-Api#trading-terminal-specific) or [UDF](UDF#quotes)
+* [How to enable sidebar quotes](Widget-Constructor.md#widgetbar)
+* How to provide the data for quotes: depends on the type of data integration that you use - [JS API](JS-Api.md#trading-terminal-specific) or [UDF](UDF.md#quotes)
 
 ### Sidebar Market News Feed
 
@@ -54,8 +54,8 @@ You can have the news feed right in the sidebar of the chart. We are quite flexi
 
 **Read more about this feature:**
 
-* [Enabling sidebar news](Widget-Constructor#widgetbar)
-* [Setting up different news feeds](Widget-Constructor#rss_news_feed)
+* [Enabling sidebar news](Widget-Constructor.md#widgetbar)
+* [Setting up different news feeds](Widget-Constructor.md#rss_news_feed)
 
 ### Multiple charts layout
 
@@ -80,7 +80,7 @@ This functionality will require the support from your backend. Our open-source d
 
 **Read more about this feature:**
 
-* [Drawing Templates](Drawing-Templates)
+* [Drawing Templates](Drawing-Templates.md)
 
 <!-- markdownlint-enable no-trailing-punctuation -->
 
@@ -93,6 +93,6 @@ Note that the specific features that are available in the Trading Terminal only 
 
 ## See Also
 
-* [How to connect your trading back-end to the Trading Terminal](Broker-API)
-* [Widget methods specific for Trading Terminal](Widget-Methods#chart-trading-terminal-only)
-* [Widget constructor parameters specific for Trading Terminal](Widget-Constructor#trading-terminal-only)
+* [How to connect your trading back-end to the Trading Terminal](Broker-API.md)
+* [Widget methods specific for Trading Terminal](Widget-Methods.md#chart-trading-terminal-only)
+* [Widget constructor parameters specific for Trading Terminal](Widget-Constructor.md#trading-terminal-only)

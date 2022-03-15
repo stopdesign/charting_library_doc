@@ -2,7 +2,7 @@
 
 You can add your own buttons to the top toolbar.
 
-[createButton(options)](Widget-Methods#createbuttonoptions)
+[createButton(options)](Widget-Methods.md#createbuttonoptions)
 
 ### Styles
 

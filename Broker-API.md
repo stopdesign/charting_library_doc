@@ -1,4 +1,4 @@
-:chart: All content on this page is related to [Trading Terminal](Trading-Terminal) only.
+:chart: All content on this page is related to [Trading Terminal](Trading-Terminal.md) only.
 
 Broker API is a key component that enables live trading. Its main purpose is to connect our charts with your trading logic. In terms of `JS`, it is an `object` which is expected to expose the specific interface. Here is a list of API's **methods** that Terminal is expected to have.
 
@@ -6,33 +6,33 @@ Broker API is a key component that enables live trading. Its main purpose is to 
 
 ### constructor(host)
 
-The constructor of the Broker API usually takes [Trading Host](Trading-Host).
+The constructor of the Broker API usually takes [Trading Host](Trading-Host.md).
 
 ### positions : Promise<Position[]>
 
-This method is called by the Trading Terminal to request [positions](Trading-Objects-and-Constants#position).
+This method is called by the Trading Terminal to request [positions](Trading-Objects-and-Constants.md#position).
 
 ### orders : Promise<Order[]>
 
-This method is called by the Trading Terminal to request [orders](Trading-Objects-and-Constants#order).
+This method is called by the Trading Terminal to request [orders](Trading-Objects-and-Constants.md#order).
 
 ### ordersHistory : Promise<Order[]>
 
-This method is called by the Trading Terminal to request orders history. It is expected that returned [orders](Trading-Objects-and-Constants#order) will have a final status (`rejected`, `filled`, `cancelled`). This method is optional. If you don't support orders history, please set `supportOrdersHistory` flag to `false`.
+This method is called by the Trading Terminal to request orders history. It is expected that returned [orders](Trading-Objects-and-Constants.md#order) will have a final status (`rejected`, `filled`, `cancelled`). This method is optional. If you don't support orders history, please set `supportOrdersHistory` flag to `false`.
 
 ### executions(symbol) : Promise<Execution[]>
 
-This method is called by the Trading Terminal to request [executions](Trading-Objects-and-Constants#execution).
+This method is called by the Trading Terminal to request [executions](Trading-Objects-and-Constants.md#execution).
 
 ### trades : Promise<Trade[]>
 
-This method is called by the Trading Terminal to request [trades](Trading-Objects-and-Constants#trade) (individual positions).
+This method is called by the Trading Terminal to request [trades](Trading-Objects-and-Constants.md#trade) (individual positions).
 
 ### chartContextMenuActions(e)
 
 - `e` is a context object passed by a browser
 
-Chart can have a sub-menu `Trading` in the context menu. This method should return an array of [ActionMetaInfo](Trading-Objects-and-Constants#actionmetainfo) elements, each of them representing one context menu item.
+Chart can have a sub-menu `Trading` in the context menu. This method should return an array of [ActionMetaInfo](Trading-Objects-and-Constants.md#actionmetainfo) elements, each of them representing one context menu item.
 
 ### connectionStatus()
 
@@ -61,23 +61,23 @@ If you want to show a custom message with the reason why the symbol cannot be tr
 ### accountManagerInfo()
 
 This function should return the information that will be used to build an Account manager.
-See [Account manager](Account-Manager) for more information.
+See [Account manager](Account-Manager.md) for more information.
 
-### placeOrder([order](Trading-Objects-and-Constants#order), confirmId)
+### placeOrder([order](Trading-Objects-and-Constants.md#order), confirmId)
 
 Method is called when a user wants to place an order. Order is pre-filled with partial or complete information.
 
 `confirmId` is passed if `supportPlaceOrderPreview` configuration flag is on.
 
-### previewOrder([order](Trading-Objects-and-Constants#order))
+### previewOrder([order](Trading-Objects-and-Constants.md#order))
 
 Returns estimated commission, fees, margin and other information for the order without it actually being placed. The method is called if `supportPlaceOrderPreview` configuration flag is on.
 The result will be an object with the following fields:
 
 - `confirmId` - a unique identifier that should be passed to `placeOrder` method
-- `info` - information about the order, which is a table that has the following structure: [OrderPreviewInfoItem](Trading-Objects-and-Constants#OrderPreviewInfoItem)[].
+- `info` - information about the order, which is a table that has the following structure: [OrderPreviewInfoItem](Trading-Objects-and-Constants.md#OrderPreviewInfoItem)[].
 
-### modifyOrder([order](Trading-Objects-and-Constants#order))
+### modifyOrder([order](Trading-Objects-and-Constants.md#order))
 
 1. `order` is an order object to modify
 
@@ -92,16 +92,16 @@ This method is called to cancel a single order with a given `id`.
 ### cancelOrders(symbol, side, ordersIds)
 
 1. `symbol` - symbol string
-1. `side`: [Side constant](Trading-Objects-and-Constants#side) or `undefined`
+1. `side`: [Side constant](Trading-Objects-and-Constants.md#side) or `undefined`
 1. `ordersIds` - ids already collected by `symbol` and `side`
 
 This method is called to cancel multiple orders for a `symbol` and `side`.
 
-### editPositionBrackets(positionId, [brackets](Trading-Objects-and-Constants#brackets), customFields)
+### editPositionBrackets(positionId, [brackets](Trading-Objects-and-Constants.md#brackets), customFields)
 
 1. `positionId` is an ID of an existing position to be modified
-1. `brackets` - new [brackets](Trading-Objects-and-Constants#brackets).
-1. `customFields` - [CustomInputFieldsValues](Trading-Objects-and-Constants#CustomInputFieldsValues) or `undefined`
+1. `brackets` - new [brackets](Trading-Objects-and-Constants.md#brackets).
+1. `customFields` - [CustomInputFieldsValues](Trading-Objects-and-Constants.md#CustomInputFieldsValues) or `undefined`
 
 This method is called if `supportPositionBrackets` configuration flag is on. It shows a dialog that enables `take profit` and `stop loss` editing.
 
@@ -115,10 +115,10 @@ The amount is specified if `supportPartialClosePosition` is `true` and the user 
 
 This method is called if `supportNativeReversePosition` configuration flag is on. It allows to reverse the position by id.
 
-### editTradeBrackets(tradeId, [brackets](Trading-Objects-and-Constants#brackets))
+### editTradeBrackets(tradeId, [brackets](Trading-Objects-and-Constants.md#brackets))
 
 1. `tradeId` is ID of existing trade to be modified
-1. `brackets` - new [brackets](Trading-Objects-and-Constants#brackets).
+1. `brackets` - new [brackets](Trading-Objects-and-Constants.md#brackets).
 
 This method is called if `supportTradeBrackets` configuration flag is on. It displays a dialog that enables take profit and stop loss editing.
 
@@ -175,7 +175,7 @@ This method is called to change current account. If the account is changed synch
 
 The method should be implemented if you use the standard Order dialog and support stop loss. Equity is used to calculate Risk in Percent.
 
-Once this method is called the broker should provide equity (Balance + P/L) updates via [equityUpdate](Trading-Host#equityupdateequity) method.
+Once this method is called the broker should provide equity (Balance + P/L) updates via [equityUpdate](Trading-Host.md#equityupdateequity) method.
 
 ### unsubscribeEquity()
 
@@ -187,7 +187,7 @@ Once this method is called the broker should stop providing equity updates.
 
 The method should be implemented if you use the standard Order dialog and want to show the margin meter.
 
-Once this method is called the broker should provide margin available updates via [marginAvailableUpdate](Trading-Host#marginavailableupdatemarginavailable) method.
+Once this method is called the broker should provide margin available updates via [marginAvailableUpdate](Trading-Host.md#marginavailableupdatemarginavailable) method.
 
 ### unsubscribeMarginAvailable()
 
@@ -199,7 +199,7 @@ Once this method is called the broker should stop providing margin available upd
 
 The method should be implemented if you use a standard Order dialog. `pipValues` is displayed in the Order info and it is used to calculate the Trade Value and risks. If this method is not implemented then `pipValue` from the `symbolInfo` is used in the order panel/dialog.
 
-Once this method is called the broker should provide `pipValue` updates via [pipValueUpdate](Trading-Host#pipvalueupdatesymbol-pipValues) method.
+Once this method is called the broker should provide `pipValue` updates via [pipValueUpdate](Trading-Host.md#pipvalueupdatesymbol-pipValues) method.
 
 ### unsubscribePipValue()
 
@@ -260,5 +260,5 @@ The result is an object with options for the position dialog.
 
 ## See Also
 
-- [How to connect](Widget-Constructor#broker_factory) your trading controller to the chart
-- [Trading Host](Trading-Host)
+- [How to connect](Widget-Constructor.md#broker_factory) your trading controller to the chart
+- [Trading Host](Trading-Host.md)
